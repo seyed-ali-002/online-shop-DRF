@@ -1,0 +1,123 @@
+.homepage { padding-bottom: 60px; }
+
+/* Hero */
+.hero {
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(232,69,96,0.12) 0%, transparent 70%);
+}
+.hero-inner {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 40px;
+  position: relative; z-index: 1;
+}
+.hero-text { max-width: 500px; }
+.hero-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800; color: var(--text-primary);
+  line-height: 1.2; margin-bottom: 14px;
+}
+.hero-subtitle { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+.hero-actions { display: flex; gap: 12px; }
+.hero-cta { padding: 12px 28px; font-size: 15px; }
+.hero-emoji { font-size: clamp(80px, 12vw, 140px); line-height: 1; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+.banner-dots {
+  display: flex; gap: 8px; justify-content: center;
+  margin-top: 28px; position: relative; z-index: 1;
+}
+.banner-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border-light); border: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.banner-dot.active { background: var(--orange); width: 24px; border-radius: 4px; }
+
+/* Trust strip */
+.trust-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; margin: 32px 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.trust-icon { font-size: 20px; }
+
+/* Sections */
+.section { margin: 40px 0; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.section-title { margin-bottom: 0; }
+.see-more { font-size: 13px; color: var(--orange); font-weight: 600; text-decoration: none; }
+.see-more:hover { text-decoration: underline; }
+
+/* Categories */
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+.cat-card {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 10px; padding: 20px 12px;
+  text-decoration: none; color: inherit;
+  transition: all 0.22s;
+}
+.cat-card:hover { border-color: var(--orange); background: var(--orange-muted); }
+.cat-emoji { font-size: 30px; }
+.cat-name { font-size: 12px; font-weight: 600; color: var(--text-secondary); text-align: center; }
+.cat-card:hover .cat-name { color: var(--orange); }
+
+/* Promo */
+.promo-banner {
+  background: linear-gradient(135deg, #2d1020, #1a1d24);
+  border: 1px solid rgba(232,69,96,0.3);
+  border-radius: var(--radius-lg); padding: 36px 40px;
+  margin: 40px 0;
+  position: relative; overflow: hidden;
+}
+.promo-banner::before {
+  content: '';
+  position: absolute; top: -40%; right: -10%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(232,69,96,0.2), transparent 70%);
+}
+.promo-content { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+.promo-title { font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
+.promo-sub { font-size: 14px; color: var(--text-secondary); }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 60px; color: var(--text-muted); }
+.empty-hint { font-size: 12px; margin-top: 8px; }
+
+/* Skeleton card */
+.skeleton-card { overflow: hidden; }
+
+@media (max-width: 1024px) {
+  .cats-grid { grid-template-columns: repeat(4, 1fr); }
+  .trust-strip { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .hero-inner { flex-direction: column; text-align: center; }
+  .hero-actions { justify-content: center; }
+  .hero-emoji { display: none; }
+  .cats-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .promo-content { flex-direction: column; gap: 20px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .trust-strip { grid-template-columns: repeat(2, 1fr); padding: 14px; gap: 12px; }
+  .trust-item { font-size: 12px; }
+  .cats-grid { grid-template-columns: repeat(4, 1fr); }
+  .cat-emoji { font-size: 22px; }
+  .cat-name { font-size: 11px; }
+}
